@@ -13,7 +13,7 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     content = models.TextField()
     excerpt = models.TextField(max_length=500, blank=True)
-    featured_image = models.URLField(max_length=500, blank=True)
+    featured_image = models.ImageField(upload_to="blogs/", blank=True, null=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blogs"
     )
